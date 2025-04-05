@@ -1,0 +1,264 @@
+/* Variables de color */
+:root {
+    --color-principal: #00c218;  /* Verde vibrante */
+    --color-fondo: #121212;      /* Negro carbón */
+    --color-navbar: #1e1e1e;     /* Gris oscuro */
+    --color-texto: #ffffff;      /* Blanco puro */
+    --color-botones: #00a36c;    /* Verde oscuro */
+    --color-hover: #00ff73;      /* Verde neón */
+    --color-footer: #181818;     /* Negro diferenciado */
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Barra de navegación */
+.nav-bar {
+    background: none;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    padding: 20px 0;
+    text-align: center;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 10px;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 10px;
+    background-color: #00c21786;
+    color: var(--color-texto);
+    border: none;
+    border-radius: 30px 0 30px 0;
+    cursor: pointer;
+    font-family: 'Fredoka One';
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    animation: subtleSway 4s infinite ease-in-out;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-button:hover {
+    animation: bounce 0.5s ease;
+    background-color: #00c218;
+    color: white;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes subtleSway {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Cabecera */
+.header {
+    position: relative;
+    text-align: center;
+    background-image: url('../img/header.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* Cambiado a scroll para móviles */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px 0;
+    z-index: 1;
+    min-height: 60vh;
+}
+
+/* Capa oscura semitransparente */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(22, 22, 22, 0.603);
+    z-index: -1;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+}
+
+.logo img {
+    height: clamp(120px, 25vw, 200px);
+    width: clamp(120px, 25vw, 200px);
+    margin-top: 10px;
+    object-fit: contain;
+}
+
+.restaurant-name h1 {
+    border: 2px solid #00c218;
+    padding: 10px;
+    margin: 10px 15px;
+    font-size: clamp(2rem, 8vw, 4.5rem);
+    color: var(--color-principal);
+    font-family: 'Fredoka One', cursive;
+    text-transform: uppercase;
+    text-align: center;
+    word-break: break-word;
+    animation: neon-pulse 1.5s infinite ease-in-out;
+}
+
+/* Animación de borde neón pulsante */
+@keyframes neon-pulse {
+    0%, 100% {
+        box-shadow: 0 0 5px #00c218, 
+                   0 0 10px rgba(0, 194, 24, 0.5),
+                   inset 0 0 5px #00c218;
+        border-color: #00c218;
+    }
+    50% {
+        box-shadow: 0 0 15px #00ff2a, 
+                   0 0 30px rgba(0, 255, 42, 0.8),
+                   inset 0 0 10px #00ff2a;
+        border-color: #00ff2a;
+    }
+}
+
+/* Pie de página */
+.footer {
+    border-top: 3px solid var(--color-principal);
+    background-color: var(--color-footer);
+    color: var(--color-texto);
+    text-align: center;
+    flex-shrink: 0;
+    padding: 20px 0;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px 0;
+    padding: 0 15px;
+}
+
+.footer-section h3 {
+    color: var(--color-principal);
+    margin-bottom: 15px;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+.footer-section p, .footer-section a {
+    color: var(--color-texto);
+    margin-bottom: 8px;
+    display: block;
+    text-decoration: none;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+.footer-section a:hover {
+    color: var(--color-hover);
+}
+
+.copyright {
+    margin-top: 20px;
+    padding: 15px 0 5px;
+    border-top: 1px solid #555;
+    color: var(--color-texto);
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+}
+
+/* Media Queries para ajustes específicos */
+@media (max-width: 768px) {
+    .nav-bar {
+        padding: 15px 0;
+    }
+    
+    .header {
+        background-attachment: scroll;
+        min-height: 85vh;
+    }
+    
+    .restaurant-name h1 {
+        margin: 25px;
+    }
+
+    .logo img{
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-buttons {
+        gap: 5px;
+    }
+    
+    .nav-button {
+        padding: 10px 16px;
+        margin: 10px;
+    }
+    
+    .header {
+        min-height: 85vh;
+    }
+    
+    .footer-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-section {
+        min-width: 100%;
+        text-align: center;
+    }
+}
+
+::-webkit-scrollbar{
+    display: none;
+}

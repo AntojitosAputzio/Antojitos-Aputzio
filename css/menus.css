@@ -1,0 +1,196 @@
+:root {
+    --color-principal: #00c218;  /* Verde vibrante */
+    --color-fondo: #121212;      /* Negro carbón */
+    --color-navbar: #1e1e1e;     /* Gris oscuro */
+    --color-texto: #ffffff;      /* Blanco puro */
+    --color-botones: #00a36c;    /* Verde oscuro */
+    --color-hover: #00ff73;      /* Verde neón */
+    --color-footer: #181818;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.header {
+    text-align: center;
+    padding: 1rem 1rem;
+    background-color: var(--color-navbar);
+    color: var(--color-texto);
+    border-bottom: 3px solid var(--color-principal);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: var(--color-principal);
+}
+
+.header p {
+    margin: 0.5rem 0 0;
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Contenedor del menú */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjetas del menú */
+.menu-card {
+    background-color: var(--color-navbar);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #333;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 194, 24, 0.2);
+    border-color: var(--color-principal);
+}
+
+.card-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.menu-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h2 {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.card-content h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    color: var(--color-principal);
+}
+
+.card-content p {
+    margin: 0 0 1.5rem;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Pie de página */
+.footer {
+    border-top: 3px solid var(--color-principal);
+    background-color: var(--color-footer);
+    color: var(--color-texto);
+    text-align: center;
+    flex-shrink: 0;
+    padding: 20px 0;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px 0;
+    padding: 0 15px;
+}
+
+.footer-section h3 {
+    color: var(--color-principal);
+    margin-bottom: 15px;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+.footer-section p, .footer-section a {
+    color: var(--color-texto);
+    margin-bottom: 8px;
+    display: block;
+    text-decoration: none;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+.footer-section a:hover {
+    color: var(--color-hover);
+}
+
+.copyright {
+    margin-top: 20px;
+    padding: 15px 0 5px;
+    border-top: 1px solid #555;
+    color: var(--color-texto);
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .menu-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        padding: 1rem;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        grid-template-columns: 1fr;
+        margin: 12px;
+    }
+    
+    .card-image {
+        height: 180px;
+    }
+
+    .footer-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+}
